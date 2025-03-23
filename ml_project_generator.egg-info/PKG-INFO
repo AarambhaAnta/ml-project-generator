@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: ml-project-generator
+Version: 0.1.0
+Summary: A Python package for quickly setting up ML project structures.
+Home-page: https://github.com/AarambhaAnta/ml-project-generator
+Author: @AarambhaAnta
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: classifier
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: summary
