@@ -10,4 +10,5 @@ ml_project_generator.egg-info/PKG-INFO
 ml_project_generator.egg-info/SOURCES.txt
 ml_project_generator.egg-info/dependency_links.txt
 ml_project_generator.egg-info/entry_points.txt
+ml_project_generator.egg-info/requires.txt
 ml_project_generator.egg-info/top_level.txt

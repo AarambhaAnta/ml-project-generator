@@ -1,3 +1,27 @@
 [build-system]
-requires = ["setuptools", "wheel"]
+requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "ml_project_generator"
+version = "0.1.0"
+description = "A tool to generate ML project structures"
+authors = [{name = "@AarambhaAnta", email = "aarambha108@gmail.com"}]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.6"
+
+dependencies = [
+    "numpy",
+    "pandas",
+    "scikit-learn"
+]
+
+[tool.setuptools]
+packages = ["ml_project_generator"]
+
+[tool.setuptools.dynamic]
+classifiers = {file = "classifiers.txt"}
+
+[project.scripts]
+ml-gen = "ml_project_generator.main:main"

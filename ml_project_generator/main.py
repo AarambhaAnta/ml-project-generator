@@ -1,15 +1,19 @@
 import argparse
+import os
 from ml_project_generator.project_creator import create_ml_project_structure
+
 
 def main():
     """
-    Command-line interface for the ML project generator.
+    Command-line interface for generating an ML project structure.
     """
-    parser = argparse.ArgumentParser(description="Create a structured ML project.")
-    parser.add_argument("project_name", nargs="?", default="my_ml_project", help="Project directory name.")
+    parser = argparse.ArgumentParser(description="Create a machine learning project structure.")
+    parser.add_argument("project_name", nargs="?", default="my_ml_project", help="Name of the project directory.")
     args = parser.parse_args()
+    project_name = args.project_name.strip() if args.project_name else "my_ml_project"
+    
+    create_ml_project_structure(project_name)
 
-    create_ml_project_structure(args.project_name)
 
 if __name__ == "__main__":
     main()
