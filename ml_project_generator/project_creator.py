@@ -3,6 +3,14 @@ import sys
 import subprocess
 import logging
 from enum import Enum
+from pathlib import Path
+from typing import Dict, List, Optional
+from .utils import (
+    get_docstring_template,
+    get_example_code,
+    get_config_template,
+    get_test_template
+)
 
 class ProjectTemplate(Enum):
     BASIC = "basic"
@@ -565,5 +573,65 @@ def create_virtual_environment(project_name):
         logging.info(f"💡 Activate it using: \n -Windows: `{venv_path}\\scripts\\activate`\n -macOS/Linux: `source {venv_path}/bin/activate`")
     except subprocess.CalledProcessError as e:
         logging.error(f"❌ Failed to create virtual environment: {e}")
+
+def create_model_file(self, model_dir: Path, template_type: str) -> None:
+    """Create model implementation file with docstrings and examples."""
+    model_file = model_dir / "model.py"
+    class_name = self._get_model_class_name(template_type)
+    
+    with open(model_file, "w") as f:
+        f.write(get_docstring_template(class_name, "model"))
+        f.write("\n\n")
+        f.write(self._get_model_implementation(template_type))
+        f.write("\n\n")
+        f.write(get_example_code("model"))
+
+def create_preprocessing_file(self, data_dir: Path) -> None:
+    """Create preprocessing utilities with docstrings and examples."""
+    preprocessing_file = data_dir / "preprocessing.py"
+    
+    with open(preprocessing_file, "w") as f:
+        f.write(get_docstring_template("", "preprocessing"))
+        f.write("\n\n")
+        f.write(self._get_preprocessing_implementation())
+        f.write("\n\n")
+        f.write(get_example_code("preprocessing"))
+
+def create_training_file(self, models_dir: Path) -> None:
+    """Create training utilities with docstrings and examples."""
+    training_file = models_dir / "training.py"
+    
+    with open(training_file, "w") as f:
+        f.write(get_docstring_template("", "training"))
+        f.write("\n\n")
+        f.write(self._get_training_implementation())
+        f.write("\n\n")
+        f.write(get_example_code("training"))
+
+def create_visualization_file(self, utils_dir: Path) -> None:
+    """Create visualization utilities with docstrings and examples."""
+    visualization_file = utils_dir / "visualization.py"
+    
+    with open(visualization_file, "w") as f:
+        f.write(get_docstring_template("", "visualization"))
+        f.write("\n\n")
+        f.write(self._get_visualization_implementation())
+        f.write("\n\n")
+        f.write(get_example_code("visualization"))
+
+def create_config_file(self, config_dir: Path) -> None:
+    """Create configuration file with documentation."""
+    config_file = config_dir / "config.py"
+    
+    with open(config_file, "w") as f:
+        f.write(get_config_template())
+
+def create_test_file(self, tests_dir: Path, template_type: str) -> None:
+    """Create test file with documentation."""
+    class_name = self._get_model_class_name(template_type)
+    test_file = tests_dir / f"test_model.py"
+    
+    with open(test_file, "w") as f:
+        f.write(get_test_template(class_name))
 
 
