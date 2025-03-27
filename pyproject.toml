@@ -3,25 +3,47 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "ml_project_generator"
-version = "0.1.0"
-description = "A tool to generate ML project structures"
-authors = [{name = "@AarambhaAnta", email = "aarambha108@gmail.com"}]
-license = {text = "MIT"}
+name = "ml-project-generator"
+version = "0.1.1"
+description = "A command-line tool to generate structured Ml project templates"
+authors = [{ name = "AarambhaAnta", email = "aarambha108@gmail.com" }]
+license = { text = "MIT" }
 readme = "README.md"
-requires-python = ">=3.6"
-
-dependencies = [
-    "numpy",
-    "pandas",
-    "scikit-learn"
+requires-python = ">=3.7"
+keywords = ["machine learning", "project generator", "template", "CLI"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Build Tools",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
 ]
+
+dependencies = ["numpy>=1.21", "pandas>=1.3", "scikit-learn>=1.0"]
 
 [tool.setuptools]
 packages = ["ml_project_generator"]
+package-dir = { "" = "." }
+include-package-data = true
+zip-safe = false
 
-[tool.setuptools.dynamic]
-classifiers = {file = "classifiers.txt"}
+[tool.setuptools.package-data]
+ml_project_generator = ["*.txt", "*.json", "*.yaml", "*.yml"]
 
 [project.scripts]
 ml-gen = "ml_project_generator.main:main"
+
+[project.urls]
+"Homepage" = "https://github.com/AarambhaAnta/ml-project-generator"
+"Documentation" = "https://github.com/AarambhaAnta/ml-project-generator#readme"
+"Issues" = "https://github.com/AarambhaAnta/ml-project-generator/issues"
+"Source" = "https://github.com/AarambhaAnta/ml-project-generator"
+"Bug Tracker" = "https://github.com/AarambhaAnta/ml-project-generator/issues"
+
+[tool.setuptools.dynamic]
+version = { attr = "ml_project_generator.__version__" }
+readme = { file = ["README.md"] }
