@@ -1,144 +1,120 @@
 # ML Project Generator
 
-🚀 **ml-project-generator** (v2.0.0) is a powerful Python package that automates the creation of structured machine learning project templates. It helps you focus on development rather than setup by providing ready-to-use project structures with specialized templates for different ML domains.
+🚀 A command-line tool to generate structured ML project templates with documentation and best practices.
 
 ## ✨ Features
 
-### Project Templates
-
-- **Basic ML**: Standard ML project structure with scikit-learn support
-- **Deep Learning**: PyTorch-based project with neural network support
-- **NLP**: Natural Language Processing project with transformers
-- **Computer Vision**: Image processing project with PyTorch and OpenCV
-
-### Each Template Includes
-
-- 📁 Organized directory structure
-- 📝 Example notebooks with step-by-step guides
-- 🔧 Pre-configured dependencies
-- 🛠 Template-specific utility functions
-- 📊 Data preprocessing pipelines
-- 🧪 Model training scripts
-- 📈 Visualization utilities
-
-### Project Structure
-
-```
-my_ml_project/
-├── data/
-│   ├── raw/          # Original data
-│   ├── processed/    # Processed data
-│   ├── external/     # External data sources
-│   └── interim/      # Intermediate data
-├── models/
-│   └── logs/         # Training logs
-├── notebooks/        # Example notebooks
-├── src/
-│   ├── data/         # Data processing scripts
-│   ├── models/       # Model implementations
-│   └── utils/        # Utility functions
-├── config/           # Configuration files
-├── reports/          # Project reports
-├── tests/            # Unit tests
-└── scripts/          # Automation scripts
-```
+- 🚀 Quick project setup with predefined templates
+- 📚 Comprehensive documentation templates
+- 🔧 Multiple ML project templates:
+  - Basic ML
+  - Deep Learning
+  - NLP
+  - Computer Vision
+- 📝 Automatic docstring generation
+- 📊 Example notebooks for each template
+- 🧪 Pre-configured testing setup
+- 🔄 Version management system
+- 🚀 Automated publishing via GitHub Actions
 
 ## 📥 Installation
-
-### From PyPI (Recommended)
 
 ```bash
 pip install ml-project-generator
 ```
 
-### From GitHub
-
-```bash
-pip install git+https://github.com/AarambhaAnta/ml-project-generator.git
-```
-
-### Development Installation
-
-```bash
-git clone https://github.com/AarambhaAnta/ml-project-generator.git
-cd ml-project-generator
-pip install -e .
-```
-
 ## 🚀 Usage
 
-### Basic Usage
-
 ```bash
-ml-gen my_project
-```
-
-### With Template Selection
-
-```bash
-# Basic ML template (default)
+# Create a new ML project
 ml-gen my_project
 
-# Deep Learning template
+# Create with a specific template
 ml-gen my_project --template deep_learning
 
-# NLP template
-ml-gen my_project --template nlp
-
-# Computer Vision template
-ml-gen my_project --template computer_vision
-```
-
-### With Virtual Environment
-
-```bash
+# Create with virtual environment
 ml-gen my_project --venv
 ```
 
-## 📚 Example Notebooks
+## 📁 Project Structure
 
-Each template includes specialized notebooks:
-
-### Basic ML
-
-- Data exploration and analysis
-- Model training and evaluation
-
-### Deep Learning
-
-- Data preparation and PyTorch setup
-- Model training with PyTorch
-
-### NLP
-
-- Text preprocessing
-- Transformer model training
-
-### Computer Vision
-
-- Image preprocessing
-- Vision model training
+```
+project_root/
+├── data/               # Data directory
+│   ├── raw/           # Original data files
+│   ├── processed/     # Processed data files
+│   └── external/      # External data sources
+├── models/            # Model directory
+│   ├── saved/        # Saved model files
+│   └── logs/         # Training logs
+├── notebooks/         # Jupyter notebooks
+├── src/              # Source code
+│   ├── data/         # Data processing scripts
+│   ├── models/       # Model implementations
+│   └── utils/        # Utility functions
+├── tests/            # Test files
+├── config/           # Configuration files
+└── docs/             # Documentation
+```
 
 ## 🛠 Development
+
+### 🔄 Version Management
+
+The project includes a version management system to handle version updates:
+
+```bash
+# Check if versions match across files
+python manage_version.py check
+
+# Bump patch version (2.0.2 -> 2.0.3)
+python manage_version.py bump-patch
+
+# Bump minor version (2.0.3 -> 2.1.0)
+python manage_version.py bump-minor
+
+# Bump major version (2.1.0 -> 3.0.0)
+python manage_version.py bump-major
+```
+
+### 🔧 CI/CD
+
+The project uses GitHub Actions for automated publishing:
+
+1. Create a new release tag:
+
+   ```bash
+   git tag v2.0.2  # Use the new version number
+   git push origin v2.0.2
+   ```
+
+2. The workflow will automatically:
+   - Check version consistency
+   - Build the package
+   - Run package checks
+   - Publish to PyPI and TestPyPI
+
+### ⚙️ Setup Development Environment
 
 1. Clone the repository:
 
    ```bash
    git clone https://github.com/AarambhaAnta/ml-project-generator.git
+   cd ml-project-generator
    ```
 
 2. Create a virtual environment:
 
    ```bash
    python -m venv venv
-   source venv/bin/activate  # On macOS/Linux
+   source venv/bin/activate  # On Unix/macOS
    venv\Scripts\activate     # On Windows
    ```
 
-3. Install dependencies:
+3. Install development dependencies:
 
    ```bash
-   pip install -r requirements.txt
+   pip install -e ".[dev]"
    ```
 
 4. Run tests:
@@ -148,13 +124,11 @@ Each template includes specialized notebooks:
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
-
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
 
 ## 📝 License
 
@@ -162,8 +136,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- Inspired by the cookiecutter data science project template
-- Built with ❤️ for the ML community
+- Generated using [ml-project-generator](https://github.com/AarambhaAnta/ml-project-generator)
+- Inspired by best practices in ML project organization
 
 ---
 
