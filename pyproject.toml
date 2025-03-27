@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ml-project-generator"
-version = "0.1.1"
+version = "2.0.0"
 description = "A command-line tool to generate structured Ml project templates"
 authors = [{ name = "AarambhaAnta", email = "aarambha108@gmail.com" }]
 license = { text = "MIT" }
